@@ -14,13 +14,14 @@ window.addEventListener("load", ()=>{
 let productsDiv = document.querySelector(".products");
 productsDiv.addEventListener("click", (event)=>{
     if(event.target.className =="minus"){
-        if(event.target.nextElementSibling.innerText > 1){
-            event.target.nextElementSibling.innerText--; //* sonraki kardeşini innertextini 1 azalt demek
+        let quantityP = event.target.nextElementSibling;
+        if(quantityP.innerText > 1){
+           quantityP.innerText--; //* sonraki kardeşini innertextini 1 azalt demek
             //parameter == selected productInfoDiv
-            calculateProductAndCartTotal(element.target.parentElement.parentElement);
-
-        }else{
-            if(confirm("Product will be deleted")){
+            calculateProductAndCartTotal(event.target.parentElement.parentElement);
+        }
+        else{
+            if(confirm("Product will be deleted")) {
                event.target.parentElement.parentElement.parentElement.remove();
                calculateCartTotal();
                
@@ -30,36 +31,36 @@ productsDiv.addEventListener("click", (event)=>{
         
         
         //*console.log("minus button clicked");
-    }else if(event.target.classList.contains("plus")){
+    }
+    else if(event.target.classList.contains("plus")){
         event.target.previousElementSibling.innerText++;
         //parameter == selected productInfoDiv
-        calculateProductAndCartTotal(element.target.parentElement.parentElement);
+        calculateProductAndCartTotal(event.target.parentElement.parentElement);
         //*console.log("plus button clicked"
-    }else if(event.target.classList.contains("remove-product")){
+    }
+    else if(event.target.classList.contains("remove-product")){
         event.target.parentElement.parentElement.parentElement.remove();
         calculateCartTotal();
-
         //*console.log("remove button clicked")
     }
     else{
-        console.log("other element clicked")
+        // console.log("other element clicked")
     }
 });
 
 //* calculate cart and product totals
-const calculateProductAndCartTotal = (productInfoDiv) =>{
+ const calculateProductAndCartTotal = (productInfoDiv) =>{
  // product calculation  
- let quentity =
- let price =
-
-
-
+/*  console.log(productInfoDiv); */
+ let price = productInfoDiv.querySelector("strong").innerText;
+ let quantity = productInfoDiv.querySelector("#product-quantity").innerText;
+ let productTotalDiv = productInfoDiv.querySelector(".product-line-price");
+ productTotalDiv.innerText = (price * quantity).toFixed(2);
 // cart calculation
-const calculateCartTotal();
+calculateCartTotal();
 }
 
 //* calculate cart totals
-const calculateCartTotal() => {
+const calculateCartTotal = () =>{
 
 }
-

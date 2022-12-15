@@ -1,11 +1,17 @@
-const textRate = 0.18;
+const taxRate = 0.18;
 const shippingPrice = 15.0;
 
 window.addEventListener("load", ()=>{
     //!set item to LocalStorage
-   localStorage.setItem("texRate", texRate);
+   localStorage.setItem("taxRate", taxRate);
    localStorage.setItem("shippigPrice", shippingPrice);
     //!set item to SessionStorage
-   sessionStorage.setItem("texRate", texRate);
-   sessionStorage.setItem("shippigPrice", shippingPrice);
+//    sessionStorage.setItem("taxRate", taxRate);
+//    sessionStorage.setItem("shippigPrice", shippingPrice);
 });
+
+//? capturing method
+let productsDiv = document.querySelector(".products");
+productsDiv.addEventListener("click", (event)=>{
+    console.log(event.target);
+})

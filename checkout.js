@@ -13,5 +13,12 @@ window.addEventListener("load", ()=>{
 //? capturing method
 let productsDiv = document.querySelector(".products");
 productsDiv.addEventListener("click", (event)=>{
-    console.log(event.target);
+    if(event.target.className =="minus"){
+        console.log("minus button clicked");
+    }else if(event.target.classList.contains("plus")){
+        console.log("plus button clicked")
+    }else if(event.target.classList.contains("remove-product")){
+        console.log("remove button clicked")
+    };
+    // console.log(event.target);
 })

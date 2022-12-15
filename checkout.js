@@ -14,11 +14,16 @@ window.addEventListener("load", ()=>{
 let productsDiv = document.querySelector(".products");
 productsDiv.addEventListener("click", (event)=>{
     if(event.target.className =="minus"){
-        console.log("minus button clicked");
+        event.target.nextElementSibling.innerText--; //* sonraki kardeşini innertextini 1 azalt demek
+        //*console.log("minus button clicked");
     }else if(event.target.classList.contains("plus")){
-        console.log("plus button clicked")
+        event.target.previousElementSibling.innerText++;
+        //*console.log("plus button clicked"
     }else if(event.target.classList.contains("remove-product")){
-        console.log("remove button clicked")
-    };
-    // console.log(event.target);
-})
+        event.target.parentElement.parentElement.parentElement.remove();
+        //*console.log("remove button clicked")
+    }
+    else{
+        console.log("other element clicked")
+    }
+});
